@@ -4,34 +4,46 @@
 <title>Alexey Kashapov</title>
 <meta charset="utf-8">
 <link type="text/css" rel="stylesheet" href="../styles/style.css" />
+<link type="text/css" rel="stylesheet" href="../styles/warevision_styles.css" />
 <!--[if IE 6]><link rel="stylesheet" href="styles/ie6.css" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" href="styles/ie7.css" /><![endif]-->
 </head>
 <body>
 <div id="wrap">
   <div id="header">
-    <h1>Alexey Kashapov </h1>
-    <h2>personal web page</h2>
+    <h1>WareVision </h1>
+    <h2 ><a href="../index.html">main page </a></h2>
   </div>
   <div id="bio">
+    <div id="bio">
+      <div id="warevision_about">
+        <h3><a href="https://warevision.tech/">WareVision</a> </h3>
+        <h3>is a startup company locates in Skolkovo Innovation Center. They create robotics solutions for warehouse and retail stocktaking.</h3>
+      </div>
+      <div id="warevision_right">
+      <div > <img src="warevision_images/ump_drone.jpg" alt="" width="460" height="400"/> </div>
+      </div>
+        <p> I joined the WareVision team for a short summer intersnhip and made a big contribution for them.
+                In terms of autonomous robotics I developed navigation stack for the platform, and a behavior tree for the system platfrom-drone. We use ROS for both robots.
+                        </p>
+                        <p>This video demonstrates my contribution. The platform uses my navigation stack to create trajectory and follow it.
+                Morevover, behavior tree which was launched on the platform controls drone behavior by sending the comands and send the next comand after drone's response.
+                As it is a prototype, in that moment on the video we didn't use LIDARs for localization and the platfrom followed the trajectory by getting odometry. In the next iteration WareVision will use LIDARs and accessory beacons for localization stack.
 
+                <p>One of the key concept in this project is localization system for drone. Inside the platform locates camera with IR-filter which absorbs all spectrum light except IR. In the same time there are 5 IR light emiters on the drone form a pattern.
+                The platform detects the pattern and can calculate a height and an angle of the drone in respect to camera frame.</p>
 
-      <h3>WareVision</h3>
-        <div > <img src="warevision_images/ump_drone.jpg" alt="" width="180" height="180" /> </div>
-      <p> WareVision https://warevision.tech/ is a startup company in Skolkovo Innovation Center. They create robotics solutions for warehouse and retail stocktaking </p>
-
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/mtGU4zlEjm4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+      <iframe width="960" height="600" src="https://www.youtube.com/embed/mtGU4zlEjm4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
   </div>
   <div class="line"></div>
   <h3>My contribtution</h3>
-  <p> I joined the WareVision team for a short summer intersnhip and made a big contribution to the team. I developed navigation stack for the platform, created behavior tree for the system platfrom-drone.
-    Worked with maxon motors
-  </p>
+
 
   <div id="footer">
-    <p>Copyright &copy; <a href="#">Domain Name</a> - All Rights Reserved / Design By <a target="_blank" href="http://www.chris-creed.com/">Chris Creed</a></p>
+    <p>Copyright &copy; 2020 Alexey Kashapov</p>
   </div>
 </div>
 </body>

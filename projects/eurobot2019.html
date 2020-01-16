@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Alexey Kashapov</title>
+<meta charset="utf-8">
+<link type="text/css" rel="stylesheet" href="../styles/style.css" />
+<!--[if IE 6]><link rel="stylesheet" href="styles/ie6.css" /><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="styles/ie7.css" /><![endif]-->
+</head>
+<body>
+<div id="wrap">
+  <div id="header">
+    <h1>Alexey Kashapov </h1>
+    <h2>personal web page</h2>
+  </div>
+  <div id="bio">
+    <div id="about">
+
+
+      <h3>Eurobot 2019 contest</h3>
+      <p> Eurobot i s a robotic constest. An amazing event gathering fun, high technology, friendship, creativity, education and passion!
+        Created in 1998, Eurobot is an international amateur robotics contest open to teams of young people, organized either in student projects or in independent clubs. </p>
+
+      <p> To participate in the competition the team needs to design and make two autonomous robots.
+        The robots must complete specific tasks in a minute and 30 seconds and earn maximum points.
+        At the same time the team must solve a number of specific tasks and to complete a full cycle of development and production of the robot.”
+        For further information visit: http://www.eurobot.org/ </p>
+
+      <h4>Our team became a Champion of National contest in Russian and become a veci-champion in World Final in La-Rouche-sur-Yon, France!!!</h4>
+    </div>
+    <div id="contact-details">
+      <div id="photo-eurobot-logo"> <img src="eurobot_images/eurobot_logo.png" alt="right" width="300" height="220" /> </div>
+    </div>
+
+      <div id="photo-eurobot-bg"> <img src="eurobot_images/team.jpg" alt="center" width="960" height="600" /> </div>
+
+
+  </div>
+  <div class="line"></div>
+  <h3>My contribtution</h3>
+  <p> I was one of the member of software developers. I focused on computer vision, decision making system and low-level - high-level interaction.
+  For speeding up the process of software developing we used ROS as the main framework and developed own packages. All code is available here: https://github.com/SkoltechRobotics/ros-eurobot-2019 </p>
+
+  <h4>CV</h4>
+  <p>  We used computer vision system for tracking game objects (pucks) and determing their coordinates and colors. On the first picture you see the original image from the camera, it has a big distortion and it is impossible to detemine coordinates of the pucks from this point of view.
+  To solve this task I applied homography transformation, knowing the position of the camera I got the vertical projection and then knowing the template of the field I made one more homography transofrmation based on feature matching.
+The next step was to recognize all pucks on the table. Initially, I tried to solve this task using contours approach, finding all contours and thend filtering them by area,prerimetres and etc.
+Unfortunately, this method had a huge light conditions sensitivity. It was decided to use deep learning for puck detection. We found U-Net model is lightweight and sufficient for our task. It showed much better result than traditional contours approach.
+Here some photos of data collection and labeling.
+Thus, we knew how the location of the pucks in pixel domain and we knew the size of the table and the pixel size of the image we can find the pixel/cm ration and find coordintes of pucks relative to the table frame.
+</p>
+
+      <div> <img src="eurobot_images/start_cv.jpg" alt="center" width="960" height="600" /> </div>
+      <div> <img src="eurobot_images/final_cv.jpg" alt="center" width="960" height="600" /> </div>
+      <div> <img src="eurobot_images/data_collecting.png" alt="center" width="960" height="600" /> </div>
+
+  <h4>Desicion making system</h4>
+    <p> We developed an own framework for creating decision making systems for our robots. We used the idea of behavior tree, which is cery popular in game devlopment and robotics.
+      We tried to make robots behavior robust and created some exceptions handlers for some unexpected events,e.g. if we tried to take game object and we couldn't we tried make it again.   </p>
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/KmTBy0Jkyjc?start=3701" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+  <div id="footer">
+    <p>Copyright &copy; <a href="#">Domain Name</a> - All Rights Reserved / Design By <a target="_blank" href="http://www.chris-creed.com/">Chris Creed</a></p>
+  </div>
+</div>
+</body>
+</html>

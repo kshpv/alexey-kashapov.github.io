@@ -5,6 +5,7 @@
 <meta charset="utf-8">
 <link type="text/css" rel="stylesheet" href="../styles/style.css" />
 <link type="text/css" rel="stylesheet" href="../styles/warevision_styles.css" />
+<link type="text/css" rel="stylesheet" href="../styles/eurobot_styles.css" />
 <!--[if IE 6]><link rel="stylesheet" href="styles/ie6.css" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" href="styles/ie7.css" /><![endif]-->
 </head>
@@ -17,22 +18,43 @@
   <div id="bio">
     <div id="bio">
       <div id="warevision_about">
-        <h3>Scintillation crystal is material which is used to create detectors of ionizing radiation.</h3>
+        <h2>Scintillation crystal is a material that is used to create detectors of ionizing radiation.</h2>
       </div>
       <div id="warevision_right">
-      <div > <img src="../images/fpga_board.jpg" alt="" width="460" height="400"/> </div>
+        <figure>
+          <img src="../images/fpga_board.jpg" alt="" width="420" height="380"/>
+          <figcaption>Pic.1 BINP crossboard for scintillators quality control
+          <br> 1 - System on a chip(Zynq-7000) and periphery
+        <br> 2 - Four-channel ADC
+      <br> 3 - Frequency filters
+    <br> 4 - Power management unit</figcaption>
+        </figure>
       </div>
-        <p> While I was studing my bachelor degree I was working on my bachelor thesis in Budker Institute of Nuclear Physicis in Novosibirsk (BINP). In this Institute was an idea to grow scintillators for future detectors creating or selling on epxport.
-          One of the main customer should have been Japan.
+        <p> While I was studying my bachelor's degree, I was working on my bachelor thesis in  <a href="http://www.inp.nsk.su/"> Budker Institute of Nuclear Physics in Novosibirsk, Russia (BINP) </a>.
+          The Institute grows scintillation crystals and uses them in the detectors or sells them to some customers, e.g. to Japan.
         </p>
-                        <p>BINP developed a crossboard for a quality control of scintillators. My objective was to setup this crossboard, where the main controll device was system-on-chip Zynq-7000. It is unique chip containig FPGA and CPU on one crystal.
+          <p>Before using grown crystals in a detector, it is necessary to be sure that these crystals are not defective.
+            For that reason, BINP developed a cross-board for quality control of grown scintillator crystals. You can see this board in picture 1.
+            The control unit in this board is System-on-Chip Zynq-7000, which consists of FPGA and CPU with interactive interfaces.
+            <br>In the board, FPGA detects very fast events, that occur in crystal while CPU runs web-server allowing an engineer to control the board and get recent data.
 
-                <p>I developed my own LINUX image using Yocto recipes and web-server to manage the board from web-interface. I developed FPGA design for PL part of SoC.</p>
+          </p>
+             <p>My objective was to set up this cross-board; it means to establish an interaction between FPGA and CPU, to create an own image of Linux, to create a firmware design for the FPGA part and to develop a web-server.</p>
+
+                <p>There was a lot of work. Initially, I had no experience in building a Linux image. I knew nothing about Zynq-7000 and its principles.
+                  In the end, I got a lot of experience of self-learning and technical skills in web-development, FPGA firmware design, low-level programming skills, and Linux images creating.
+                  </p>
 
     </div>
-      <div > <img src="./zynq_images/ps_block_diagram.jpg" alt="" width="500" height="400" align = "left"/> </div>
-      <div > <img src="./zynq_images/web_interface.jpg" alt="" width="460" height="400" align = "right"/> </div>
+    <figure>
+      <img src="./zynq_images/ps_block_diagram.jpg" alt="center" width="900" height="400" />
+      <figcaption>Pic.2 Design of PS part of Zynq-7000</figcaption>
+    </figure>
 
+    <figure>
+      <img src="./zynq_images/web_interface.jpg" alt="center" width="900" height="500" />
+      <figcaption>Pic.3 Web interface to control the crossboard</figcaption>
+    </figure>
 
       <div id="footer">
         <p>Copyright &copy; 2020 Alexey Kashapov</p>

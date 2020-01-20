@@ -1,0 +1,16 @@
+#bio #warevision_about {
+	float: left;
+	width: 500px;
+	margin: 0 0 10px 0;
+}
+
+figcaption {
+    padding: 5px;
+    font-family: 'Cherry Swash', cursive;
+    font-size: 1em;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+    word-wrap:normal;
+    text-align: center;
+  }

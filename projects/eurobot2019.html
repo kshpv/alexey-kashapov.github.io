@@ -4,6 +4,7 @@
 <title>Alexey Kashapov</title>
 <meta charset="utf-8">
 <link type="text/css" rel="stylesheet" href="../styles/style.css" />
+<link type="text/css" rel="stylesheet" href="../styles/eurobot_styles.css" />
 <!--[if IE 6]><link rel="stylesheet" href="styles/ie6.css" /><![endif]-->
 <!--[if IE 7]><link rel="stylesheet" href="styles/ie7.css" /><![endif]-->
 </head>
@@ -16,15 +17,16 @@
   <div id="bio">
     <div id="about">
 
-      <p> Eurobot i s a robotic constest. An amazing event gathering fun, high technology, friendship, creativity, education and passion!
+      <p> Eurobot is a robotic constest. An amazing event gathering fun, high technology, friendship, creativity, education and passion!
         Created in 1998, Eurobot is an international amateur robotics contest open to teams of young people, organized either in student projects or in independent clubs. </p>
 
       <p> To participate in the competition the team needs to design and make two autonomous robots.
         The robots must complete specific tasks in a minute and 30 seconds and earn maximum points.
-        At the same time the team must solve a number of specific tasks and to complete a full cycle of development and production of the robot.”
-        For further information visit: http://www.eurobot.org/ </p>
+        At the same time the team must solve a number of specific tasks and to complete a full cycle of development and production of the robot.
+        For further information visit: <a href="http://www.eurobot.org/" > http://www.eurobot.org/ </a> </p>
 
-      <h4>Our team became a Champion of National contest in Russian and become a veci-champion in World Final in La-Rouche-sur-Yon, France!!!</h4>
+
+    <b>  <h3 align="center">Our team became a Champion of National contest &#129351; in Russia and become a vice-champion in World Final &#129352; in La-Rouche-sur-Yon, France!!!</h3> </b>
     </div>
     <div id="contact-details">
       <div id="photo-eurobot-logo"> <img src="eurobot_images/eurobot_logo.png" alt="right" width="300" height="220" /> </div>
@@ -35,28 +37,55 @@
 
   </div>
   <div class="line"></div>
-  <h3>My contribtution</h3>
+  <h3 align="center">My contribtution</h3>
   <p> I was one of the member of software developers. I focused on computer vision, decision making system and low-level - high-level interaction.
-  For speeding up the process of software developing we used ROS as the main framework and developed own packages. All code is available here: https://github.com/SkoltechRobotics/ros-eurobot-2019 </p>
-
-  <h4>CV</h4>
-  <p>  We used computer vision system for tracking game objects (pucks) and determing their coordinates and colors. On the first picture you see the original image from the camera, it has a big distortion and it is impossible to detemine coordinates of the pucks from this point of view.
-  To solve this task I applied homography transformation, knowing the position of the camera I got the vertical projection and then knowing the template of the field I made one more homography transofrmation based on feature matching.
-The next step was to recognize all pucks on the table. Initially, I tried to solve this task using contours approach, finding all contours and thend filtering them by area,prerimetres and etc.
-Unfortunately, this method had a huge light conditions sensitivity. It was decided to use deep learning for puck detection. We found U-Net model is lightweight and sufficient for our task. It showed much better result than traditional contours approach.
-Here some photos of data collection and labeling.
-Thus, we knew how the location of the pucks in pixel domain and we knew the size of the table and the pixel size of the image we can find the pixel/cm ration and find coordintes of pucks relative to the table frame.
+  For speeding up the process of software developing we used ROS as the main framework and developed own ROS-packages. All code is available here: <a href="https://github.com/SkoltechRobotics/ros-eurobot-2019"> https://github.com/SkoltechRobotics/ros-eurobot-2019</a>.
+<br>The first subtask that I worked on was a detecting the game objects and getting their coordinates and colors.
 </p>
 
-      <div> <img src="eurobot_images/start_cv.jpg" alt="center" width="960" height="600" /> </div>
-      <div> <img src="eurobot_images/final_cv.jpg" alt="center" width="960" height="600" /> </div>
-      <div> <img src="eurobot_images/data_collecting.png" alt="center" width="960" height="600" /> </div>
+  <h3 align="center">Computer Vision </h3>
+  <p>  We used computer vision system for tracking game objects (pucks) and gathering their coordinates and colors. On the first picture you can see the original image from the camera, with a big fisheye distortion effect because ot the lens. It is obviously that it is impossible to gather coordinates of the pucks from this point of view.
+<br>
+Knowing the geometry of our table and the position of the camera relates to the table frame, we can find a homography transformation and get a vertical projection of the field. Unfortunately, we don't know the exact position of the camera, so to make sure that our projection is good enough, we apply template matching between the gotten projection and the field template.
+Thus we find a final homography transformation.
+</p>
+<br>
+<figure>
+  <img src="eurobot_images/start_cv.jpg" alt="center" width="900" height="700" />
+  <figcaption>Pic.1 Initial image from the camera</figcaption>
+</figure>
+<figure>
+  <img src="eurobot_images/final_cv.jpg" alt="center" width="900" height="700" />
+  <figcaption>Pic.2 Processed image with detected pucks with their coordinates</figcaption>
+</figure>
 
-  <h4>Desicion making system</h4>
-    <p> We developed an own framework for creating decision making systems for our robots. We used the idea of behavior tree, which is cery popular in game devlopment and robotics.
-      We tried to make robots behavior robust and created some exceptions handlers for some unexpected events,e.g. if we tried to take game object and we couldn't we tried make it again.   </p>
+<p>
+The next step is to recognize all pucks on the field.
+<br>Initially, I tried to solve this task using image contours approach - to find image contours and then filter them by area, prerimetres and other variables.
+Unfortunately, this method is not stable enough and has a huge light conditions sensitivity, because contours detection is based on a threshold, which varies on lights. Thus we decided to try deep learning approach for that. <br>
+We found <b>U-Net</b> model is lightweight and sufficient for our task. It showed significant imporvements in independnce of light conditions and stability! I was impessed!
+Here some photos of data collection and labeling.
+<br>
+Now we can get the position of pucks in pixel domain (the center of the mask). As we know the size of the table in metres and we know resolution of the image in pixels we can find the pixel/cm ratio and find coordintes of pucks relative to the table frame.
+</p>
 
-      <iframe width="960" height="500" src="https://www.youtube.com/embed/KmTBy0Jkyjc?start=3701" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<figure>
+  <img src="eurobot_images/data_collecting.png" alt="center" width="900" height="700" />
+  <figcaption>Pic.3 Data collecting process for U-Net</figcaption>
+</figure>
+
+  <h3 align="center">Desicion making system </h3>
+    <p> We developed an own framework for creating decision making systems for our robots. We use the idea of behavior tree, which is very popular in game devlopment and robotics.
+      We tried to make robots behavior robust and created some exceptions handlers for some unexpected events,e.g. if we tried to take game object and we couldn't we tried make it again.
+    <br>
+    There is a good example of the match against Switzerland team in France. You can see how our robots move. We are on the right side.
+  </p>
+
+  <figure>
+<iframe width="960" height="500" src="https://www.youtube.com/embed/KmTBy0Jkyjc?start=3701" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <figcaption>Video 1. One of the matched in France against Switzerland team. We are on the right side. </figcaption>
+  </figure>
+
 
   <div id="footer">
     <p>Copyright &copy; 2020 Alexey Kashapov</p>

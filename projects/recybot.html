@@ -23,12 +23,20 @@
         <p> RecyBot is a collaborative project between Skoltech and MIT. The objective is to develop a fully autonomous robotics system for smartphone dissasemling.
 The whole project is very big and consists of subtasks such as motion control, decision making system, perception and etc. I participated in that project and focused on perception subtask.
 
-The objective is to find the objects of interests in the input image and localize their position relative to camera frame. </p>
+The objective of perception part is to find the objects of interests in the input image and localize their positions relative to the camera frame.
+Morevover, for precise coordinate gathering it is neccessary to find edges of every components precisely. Thus, it was solved to solve the Instance Semantic Segmentation task.</p>
+
 
 <p>
-
+  As we want to get the position of every object of interests it is neccessary to getting the geometry of the components. Only in that case we can find the target position for a manipulator in 3d space.
+  Moreover, there are many approaches which solve instance semantic segmentation task usign color image as input, while noone approach that uses color image and depth map in the same time.
+  I suggested a novel model for instance semantic segmentation task which uses as input both color and depth images.
+</p>
+<p>
+  For that task I with professor Kamal Youcef-Toumi decidaded try to work with a state-of-the-art camera Zivid One Plus S. It is the most accurate 3d camera for today.
 </p>
 
+  The most common and resultive model for instance semantic Segmentation task is MASK-RCNN from Facebook Research group.
 
     </div>
 
